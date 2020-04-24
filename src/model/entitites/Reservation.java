@@ -15,7 +15,7 @@ public class Reservation {
 	private static SimpleDateFormat sdf	 =  new SimpleDateFormat("dd/MM/yyyy");
 		
 	public Reservation(Integer rooNumber, Date checkIn, Date checKout) throws DomainException {
-		
+		  
 		if (!checKout.after(checkIn)) {
 			throw new DomainException("Error in reservation : Check-out date must be after");
 		}
@@ -40,7 +40,7 @@ public class Reservation {
 		return checKout;
 	}
 
-	public long duration() {
+	private long duration() {
 		long diff = checKout.getTime() - checkIn.getTime();
 		return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
 	}
